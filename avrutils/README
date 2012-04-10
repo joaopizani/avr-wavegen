@@ -1,0 +1,7 @@
+This is a small module, containing only some helper functions to configure AVR hardware features.
+
+For example, the file timers-atmega168.c has a function to get prescale bits from a given prescale factor.
+
+To compile this module, use the command ./compile.sh. Then you can gather the object files into a static
+library (.a) using "avr-ar". If you want to add other files and functions to this module, add them to the
+compile.sh script respectively.

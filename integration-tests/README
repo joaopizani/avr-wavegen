@@ -1,0 +1,10 @@
+Each subdirectory inside this one has a program that is supposed to test a specific combination of
+frontend+backend from the avr-wavegen library suite.
+
+For each test program directory, you can find a Makefile inside of it. All makefiles work similarly:
+
+- To compile the program, type "make" and to clean all generated files type "make clean"
+- Type "make install" to transfer a HEX file into your AVR using avrdude.
+
+You might need to change some parameters in the Makefiles to adapt them to your device, USB port, etc. The
+Makefiles are well-commented and should be pretty self-explanatory... :)

@@ -1,0 +1,36 @@
+[timestart] 252000
+[size] 1000 600
+[pos] -1 -1
+*-19.000000 1106000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+@22
+PORTB.DDR[7:0]
+PORTB.PIN[7:0]
+PORTB.PORT[7:0]
+@200
+-
+-
+@24
+TIMER2.Counter[7:0]
+@25
+TIMER2.OCRA[7:0]
+@c00022
+TIMER2.OCRB[7:0]
+@28
+(0)TIMER2.OCRB[7:0]
+(1)TIMER2.OCRB[7:0]
+(2)TIMER2.OCRB[7:0]
+(3)TIMER2.OCRB[7:0]
+(4)TIMER2.OCRB[7:0]
+(5)TIMER2.OCRB[7:0]
+(6)TIMER2.OCRB[7:0]
+(7)TIMER2.OCRB[7:0]
+@1401202
+-group_end
+@22
+TIMER2.TCCRA[7:0]
+@24
+TIMER2.TCCRB[7:0]
+@22
+TIMER2.TCNT[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
