@@ -1,6 +1,6 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <avr-am/config.h>
+#include "config.h"
 
 
 ISR(TIMER0_COMPA_vect, ISR_NAKED) {
