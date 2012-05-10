@@ -1,6 +1,6 @@
 #include <avr/io.h>
 #include <stdint.h>
-#include <avram/config.h>
+#include <avr-am/config.h>
 #include <avrutils/timers-atmega168p.h>
 
 

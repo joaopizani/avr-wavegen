@@ -1,4 +1,4 @@
-This module contains two source files (src/avram/config.c and src/avram/toggle.c), and is responsible for
+This module contains two source files (src/avr-am/config.c and src/avr-am/toggle.c), and is responsible for
 providing an Amplitude Modulation (AM) "backend" for the tone generation library. The "config.c" file has
 functions to help setup a carrier wave with desired frequency, by working with timer 0. Then the file toggle.c
 has two interrupt service routines (ISRs):
