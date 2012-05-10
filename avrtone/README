@@ -1,4 +1,4 @@
-This is the AVR Tone Generation Library (libavrtone.a). It consists of one C source file (src/avrtone.c) with
+This is the AVR Tone Generation Library (libavrtone.a). It consists of one C source file (src/avr-tone.c) with
 functions to help setup the timer used for wave generation, along with the all-important function...
 
 playTone(uint16_t f_Hz, uint16_t dur_ms)

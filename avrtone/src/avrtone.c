@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <stdint.h>
 #include <avrutils/timers-atmega168p.h>
-#include <avrtone.h>
+#include <avr-tone.h>
 
 
 void initOutput(void) {
