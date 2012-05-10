@@ -53,10 +53,10 @@ PROJECTNAME=tone-with-am
 PRJSRC= src/main.c
 
 # additional includes (e.g. -I/path/to/mydir)
-INC=-I../../avrtone/include -I../../avram/include
+INC=-I../../avr-tone/include -I../../avr-am/include
 
 # libraries to link in (e.g. -lmylib)
-LIBS=-L../../avrtone -L../../avrutils -L../../avram -lavrtone -lavrutils-atmega168p -Wl,--whole-archive -lavram -Wl,--no-whole-archive
+LIBS=-L../../avr-tone -L../../avrutils -L../../avr-am -lavrtone -lavrutils-atmega168p -Wl,--whole-archive -lavram -Wl,--no-whole-archive
 
 # additional macro definition flags
 DEFS=-DF_CPU=16000000UL
