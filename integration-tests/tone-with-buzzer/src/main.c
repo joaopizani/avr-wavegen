@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
-#include <avrtone.h>
+#include <avr-tone.h>
 
 
 int main(void) {
