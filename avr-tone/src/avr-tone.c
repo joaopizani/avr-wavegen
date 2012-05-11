@@ -35,19 +35,7 @@ void setToneFreq(uint16_t f_Hz) {
 }
 
 /**
- * SOME CALCULATIONS FOR THE DURATION TIMER:
- * 1) Implement it as an alarm mechanism. Which means, have a function that a that sets up an alarm
- * on a certain number of miliseconds, triggering the call of a user-provided handler (function pointer)
- * when the time expires.
- *
- * 2) The playTone(freq, dur) function should be non-blocking. For this to happen, we must have a FIFO of
- * "tone requests", and THE ALARM HANDLER FOR THE NOTE DURATION TIMEOUT is a function that "advances" the
- * queue.
- *
- * 3) The "queue processing function" shall be responsible only for setting the output frequency as
- * requested by playTone. Whenever the queue processing function detects that the queue is empty, silence
- * is played (zero frequency).
- *
+ * USE AVR-ALARM TO IMPLEMENT DURATION IN AN ASYNCH FASHION.
  */
 
 void playTone(uint16_t f_Hz, uint16_t dur_ms) {
