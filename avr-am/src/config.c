@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <stdint.h>
 #include "config.h"
-#include <timers-atmega168p.h>
+#include <timers-atmega168.h>
 
 
 void initCarrierTimer(void) {
@@ -16,7 +16,7 @@ void setCarrierFreqKHz(uint16_t f_KHz) {
 }
 
 inline void startCarrierTimer(void) {
-    TCCR0B = getTimerPrescaleBits_atmega168p(CARRIER_PRESCALE);
+    TCCR0B = getTimerPrescaleBits(CARRIER_PRESCALE);
 }
 
 inline void stopCarrierTimer(void) {
