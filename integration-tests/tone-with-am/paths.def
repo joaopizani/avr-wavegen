@@ -3,7 +3,7 @@ AVRUTILS_INCLUDE=${AVRUTILS_ROOT}/include
 AVRUTILS_LIBS=${AVRUTILS_ROOT}/lib
 
 AVRUTILS_INCFLAGS = -I${AVRUTILS_INCLUDE}
-AVRUTILS_LIBFLAGS = -Wl,--whole-archive -L${AVRUTILS_LIBS} -lavrutils-atmega168p -Wl,--no-whole-archive
+AVRUTILS_LIBFLAGS = -Wl,--whole-archive -L${AVRUTILS_LIBS} -lavr-utils -Wl,--no-whole-archive
 
 
 AVRAM_ROOT=/home/joaopizani/build/avr/avr-am
