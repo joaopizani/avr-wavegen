@@ -1,7 +1,6 @@
-#include <avr/io.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
 #include <avr-tone.h>
+#include <alarm.h>
 
 
 int main(void) {
@@ -11,12 +10,8 @@ int main(void) {
     // start, enable all interrupts
     sei();
 
-    while(1) {
-        playTone(440, 1000);
-        _delay_ms(1000);
-        playTone(650, 1000);
-        _delay_ms(1000);
-    }
+    playTone(440, 50);
+    playTone(650, 70);
 
     return 0;
 }
