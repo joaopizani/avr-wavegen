@@ -14,6 +14,9 @@ void initOutput(void) {
 void initToneTimer(void) {
     TCCR2A |= _BV(WGM21); // clear on compare match
     TIMSK2 |= _BV(OCIE2A); // enable compare match intr.
+
+    alarm_init();
+    alarm_timer_start();
 }
 
 
