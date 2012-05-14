@@ -1,6 +1,4 @@
-#include <avr/io.h>
 #include <avr/interrupt.h>
-#include <util/delay.h>
 #include <config.h>
 #include <avr-tone.h>
 
@@ -15,11 +13,9 @@ int main(void) {
     // start
     sei();
 
-    while(1) {
-        playTone(440, 1000);
-        _delay_ms(300);
-        playTone(650, 1000);
-    }
+    playTone(440, 50);
+    playTone(650, 50);
+    playTone(440, 20);
 
     return 0;
 }
