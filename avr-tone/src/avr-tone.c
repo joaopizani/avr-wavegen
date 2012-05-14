@@ -14,7 +14,7 @@ void initToneTimer(void) {
 }
 
 inline void startToneTimer(void) {
-    TCCR2B = getTimer2PrescaleBits_atmega168p(TONE_PRESCALE);
+    TCCR2B |= getTimer2PrescaleBits_atmega168p(TONE_PRESCALE);
 }
 
 inline void stopToneTimer(void) {

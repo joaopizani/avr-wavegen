@@ -16,7 +16,7 @@ void setCarrierFreqKHz(uint16_t f_KHz) {
 }
 
 inline void startCarrierTimer(void) {
-    TCCR0B = getTimer0PrescaleBits_atmega168p(CARRIER_PRESCALE);
+    TCCR0B |= getTimer0PrescaleBits_atmega168p(CARRIER_PRESCALE);
 }
 
 inline void stopCarrierTimer(void) {
