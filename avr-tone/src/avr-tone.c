@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <timers-atmega168p.h>
+#include <timers-atmega168.h>
 #include <alarm.h>
 #include "avr-tone.h"
 
@@ -21,7 +21,8 @@ void initToneTimer(void) {
 
 
 inline void startToneTimer(void) {
-    TCCR2B |= getTimer2PrescaleBits_atmega168p(TONE_PRESCALE);
+    TCNT2 = 0x00;
+    TCCR2B |= getTimer2PrescaleBits_atmega168(TONE_PRESCALE);
 }
 
 inline void stopToneTimer(void) {
