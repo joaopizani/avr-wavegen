@@ -17,6 +17,9 @@ int main(void) {
     playTone(650, 50);
     playTone(440, 20);
 
+    // since now playback is asynchronous, we must have an "event loop" here :)
+    while(1);
+
     return 0;
 }
 
