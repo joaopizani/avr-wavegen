@@ -1,19 +1,50 @@
 [*]
 [*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
-[*] Tue May 15 19:36:30 2012
+[*] Wed May 16 13:50:54 2012
 [*]
 [dumpfile] "/tmp/avrproj/sim.vcd"
-[dumpfile_mtime] "Tue May 15 19:31:24 2012"
+[dumpfile_mtime] "Wed May 16 13:44:49 2012"
 [dumpfile_size] 310869
 [savefile] "/home/joaopizani/avr/avr-wavegen/integration-tests/tone-with-buzzer/sim/tone-with-buzzer.sav"
 [timestart] 0
-[size] 1346 606
-[pos] -1 -7
-*-24.000000 43110000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1346 574
+[pos] -1 31
+*-20.000000 43110000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [sst_width] 223
-[signals_width] 134
+[signals_width] 142
 [sst_expanded] 1
-[sst_vpaned_height] 162
+[sst_vpaned_height] 151
+@200
+-PortB - Output
+@c00028
+PORTB.DDR[7:0]
+@28
+(0)PORTB.DDR[7:0]
+(1)PORTB.DDR[7:0]
+(2)PORTB.DDR[7:0]
+(3)PORTB.DDR[7:0]
+(4)PORTB.DDR[7:0]
+(5)PORTB.DDR[7:0]
+(6)PORTB.DDR[7:0]
+(7)PORTB.DDR[7:0]
+@1401208
+-group_end
+@22
+PORTB.PIN[7:0]
+@28
+PORTB.PORT[7:0]
+@200
+-TIMER2 - Tone
+@24
+TIMER2.Counter[7:0]
+TIMER2.OCRA[7:0]
+@28
+TIMER2.TCCRA[7:0]
+TIMER2.TCCRB[7:0]
+@22
+TIMER2.TCNT[7:0]
+@200
+-TIMER1 - Alarm
 @24
 TIMER1.Counter[15:0]
 TIMER1.OCRAH[7:0]
@@ -21,28 +52,10 @@ TIMER1.OCRAL[7:0]
 @28
 TIMER1.TCCRA[7:0]
 TIMER1.TCCRB[7:0]
-@22
+@29
 TIMER1.TCCRC[7:0]
+@22
 TIMER1.TCNTH[7:0]
 TIMER1.TCNTL[7:0]
-@200
--
--
-@24
-TIMER2.Counter[7:0]
-TIMER2.OCRA[7:0]
-@29
-TIMER2.TCCRA[7:0]
-@28
-TIMER2.TCCRB[7:0]
-@22
-TIMER2.TCNT[7:0]
-@200
--
--
-@22
-PORTB.DDR[7:0]
-PORTB.PIN[7:0]
-PORTB.PORT[7:0]
 [pattern_trace] 1
 [pattern_trace] 0

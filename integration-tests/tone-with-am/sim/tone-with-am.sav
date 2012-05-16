@@ -1,33 +1,25 @@
 [*]
 [*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
-[*] Tue May 15 19:59:10 2012
+[*] Wed May 16 13:47:52 2012
 [*]
 [dumpfile] "/tmp/avrproj/sim.vcd"
-[dumpfile_mtime] "Tue May 15 19:54:47 2012"
-[dumpfile_size] 18268329
+[dumpfile_mtime] "Wed May 16 13:44:49 2012"
+[dumpfile_size] 310869
 [savefile] "/home/joaopizani/avr/avr-wavegen/integration-tests/tone-with-am/sim/tone-with-am.sav"
 [timestart] 0
 [size] 1220 616
-[pos] 89 -107
+[pos] 89 0
 *-24.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [sst_width] 223
 [signals_width] 158
 [sst_expanded] 1
-[sst_vpaned_height] 166
+[sst_vpaned_height] 175
+@201
+-Timer0 - Carrier
 @22
 PORTB.DDR[7:0]
 PORTB.PIN[7:0]
 PORTB.PORT[7:0]
-@200
--Timer0 - Carrier
-@24
-TIMER0.Counter[7:0]
-TIMER0.OCRA[7:0]
-@28
-TIMER0.TCCRA[7:0]
-TIMER0.TCCRB[7:0]
-@22
-TIMER0.TCNT[7:0]
 @200
 -Timer2 - Tone
 @24
@@ -47,7 +39,7 @@ TIMER1.OCRAL[7:0]
 @28
 TIMER1.TCCRA[7:0]
 TIMER1.TCCRB[7:0]
-@c00029
+@c00028
 TIMER1.TCCRC[7:0]
 @28
 (0)TIMER1.TCCRC[7:0]
@@ -58,7 +50,7 @@ TIMER1.TCCRC[7:0]
 (5)TIMER1.TCCRC[7:0]
 (6)TIMER1.TCCRC[7:0]
 (7)TIMER1.TCCRC[7:0]
-@1401209
+@1401200
 -group_end
 @22
 TIMER1.TCNTH[7:0]
