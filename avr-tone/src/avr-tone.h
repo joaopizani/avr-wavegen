@@ -2,7 +2,7 @@
 #define AVRTONE_H
 
 #include <stdint.h>
-#include <alarm.h>
+#include <avr-alarm/alarm.h>
 
 #define TONE_PRESCALE 1024
 #define TONE_TIMER_FREQ_HZ (F_CPU / TONE_PRESCALE)

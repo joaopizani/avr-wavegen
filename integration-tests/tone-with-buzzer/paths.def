@@ -1,6 +1,6 @@
 AVRUTILS_ROOT=/home/joaopizani/build/avr/avr-utils
 AVRUTILS_INCLUDE=${AVRUTILS_ROOT}/include
-AVRUTILS_LIBS=${AVRUTILS_ROOT}/lib
+AVRUTILS_LIBS=${AVRUTILS_ROOT}/lib/avr-utils
 
 AVRUTILS_INCFLAGS = -I${AVRUTILS_INCLUDE}
 AVRUTILS_LIBFLAGS = -L${AVRUTILS_LIBS} -lavr-utils
@@ -8,7 +8,7 @@ AVRUTILS_LIBFLAGS = -L${AVRUTILS_LIBS} -lavr-utils
 
 AVRBUZZER_ROOT=/home/joaopizani/build/avr/avr-buzzer
 AVRBUZZER_INCLUDE=${AVRBUZZER_ROOT}/include
-AVRBUZZER_LIBS=${AVRBUZZER_ROOT}/lib
+AVRBUZZER_LIBS=${AVRBUZZER_ROOT}/lib/avr-buzzer
 
 AVRBUZZER_INCFLAGS = -I${AVRBUZZER_INCLUDE}
 AVRBUZZER_LIBFLAGS = -Wl,--whole-archive -L${AVRBUZZER_LIBS} -lavr-buzzer -Wl,--no-whole-archive
@@ -16,7 +16,7 @@ AVRBUZZER_LIBFLAGS = -Wl,--whole-archive -L${AVRBUZZER_LIBS} -lavr-buzzer -Wl,--
 
 AVRALARM_ROOT=/home/joaopizani/build/avr/avr-alarm
 AVRALARM_INCLUDE=${AVRALARM_ROOT}/include
-AVRALARM_LIBS=${AVRALARM_ROOT}/lib
+AVRALARM_LIBS=${AVRALARM_ROOT}/lib/avr-alarm
 
 AVRALARM_INCFLAGS = -I${AVRALARM_INCLUDE}
 AVRALARM_LIBFLAGS = -Wl,--whole-archive -L${AVRALARM_LIBS} -lavr-alarm -Wl,--no-whole-archive
@@ -24,7 +24,7 @@ AVRALARM_LIBFLAGS = -Wl,--whole-archive -L${AVRALARM_LIBS} -lavr-alarm -Wl,--no-
 
 AVRTONE_ROOT=/home/joaopizani/build/avr/avr-tone
 AVRTONE_INCLUDE=${AVRTONE_ROOT}/include
-AVRTONE_LIBS=${AVRTONE_ROOT}/lib
+AVRTONE_LIBS=${AVRTONE_ROOT}/lib/avr-tone
 
 AVRTONE_INCFLAGS = -I${AVRTONE_INCLUDE}
 AVRTONE_LIBFLAGS = -L${AVRTONE_LIBS} -lavr-tone

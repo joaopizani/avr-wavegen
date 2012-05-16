@@ -1,8 +1,8 @@
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <timers-atmega168.h>
-#include <alarm.h>
+#include <avr-utils/timers-atmega168.h>
+#include <avr-alarm/alarm.h>
 #include "avr-tone.h"
 
 

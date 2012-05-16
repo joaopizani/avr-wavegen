@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <stdint.h>
 #include "config.h"
-#include <timers-atmega168.h>
+#include <avr-utils/timers-atmega168.h>
 
 
 void initCarrierTimer(void) {

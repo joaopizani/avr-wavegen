@@ -1,6 +1,6 @@
 #include <avr/interrupt.h>
-#include <config.h>
-#include <avr-tone.h>
+#include <avr-am/config.h>
+#include <avr-tone/avr-tone.h>
 
 
 int main(void) {
