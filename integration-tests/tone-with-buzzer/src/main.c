@@ -6,13 +6,13 @@ int main(void) {
     initOutput();
     initToneTimer();
 
+    playTone(440, 50);
+    playTone(880, 50);
+    playTone(440, 50);
+    playTone(880, 50);
+
     // start, enable all interrupts
     sei();
-
-    playTone(440, 50);
-    playTone(650, 50);
-    playTone(440, 50);
-    playTone(650, 50);
 
     // since now playback is asynchronous, we must have an "event loop" here :)
     while(1);
