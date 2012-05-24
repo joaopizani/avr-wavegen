@@ -44,14 +44,16 @@ void setToneFreq(uint16_t f_Hz) {
 void setFreqAlarmHandler(void* freq_uint16_ptr) {
     uint16_t* f_Hz_ptr = (uint16_t*) freq_uint16_ptr;
     uint16_t f_Hz = *f_Hz_ptr; // saving
-    free(f_Hz_ptr); // we don't need it anymore
 
     if(f_Hz == 0) { // silence
         quiet();
         stopToneTimer();
+        // we cannot free the pointer to static variable which stores 0Hz
     } else { // sound
         setToneFreq(f_Hz);
         startToneTimer();
+        free(f_Hz_ptr); // we don't need it anymore
+        // we cannot free the pointer to static variable which stores 0Hz
     }
 }
 

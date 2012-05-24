@@ -10,7 +10,9 @@ int main(void) {
     sei();
 
     playTone(440, 50);
-    playTone(650, 70);
+    playTone(650, 50);
+    playTone(440, 50);
+    playTone(650, 50);
 
     // since now playback is asynchronous, we must have an "event loop" here :)
     while(1);
