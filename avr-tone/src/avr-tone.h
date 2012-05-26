@@ -4,7 +4,11 @@
 #include <stdint.h>
 #include <avr-alarm/alarm.h>
 
-#define TONE_PRESCALE 1024
+/* perfect prescale factor for good frequency range and resolution
+ * resolution of 1Hz and range C4 to C6.
+ */
+#define TONE_PRESCALE 128
+
 #define TONE_TIMER_FREQ_HZ (F_CPU / TONE_PRESCALE)
 
 

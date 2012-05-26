@@ -37,7 +37,7 @@ inline void quiet(void) {
 
 void setToneFreq(uint16_t f_Hz) {
     const uint32_t toneTimerPeriodCount = TONE_TIMER_FREQ_HZ / f_Hz;
-    const uint32_t toneTimerToggleCount = toneTimerPeriodCount / 2;
+    const uint32_t toneTimerToggleCount = toneTimerPeriodCount >> 1;
     OCR2A = toneTimerToggleCount;
 }
 
