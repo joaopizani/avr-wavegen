@@ -39,7 +39,7 @@ int main(void) {
 
     // init "beeps" so that we can notice the scale coming :)
     int i;
-    for(i = 0; i < 5; i++) {
+    for(i = 0; i < 4; i++) {
         playTone(1000, 100);
         playTone(0, 900);
     }
@@ -48,22 +48,22 @@ int main(void) {
 
 
     sei();
-    _delay_ms(7000);
+    _delay_ms(2000);
 
     // C major scale, to test that the tones are played in tune :)
     while(1) {
-        playTone(C4, 1000); playTone(D4, 1000); playTone(E4, 1000); playTone(F4, 1000);
-        playTone(G4, 1000); playTone(A4, 1000); playTone(B4, 1000); playTone(C5, 1000);
-        playTone(C5, 1000); playTone(B4, 1000); playTone(A4, 1000); playTone(G4, 1000);
-        playTone(F4, 1000); playTone(E4, 1000); playTone(D4, 1000); playTone(C4, 1000);
+        playTone(C4, 500); playTone(D4, 500); playTone(E4, 500); playTone(F4, 500);
+        playTone(G4, 500); playTone(A4, 500); playTone(B4, 500); playTone(C5, 500);
+        playTone(C5, 500); playTone(B4, 500); playTone(A4, 500); playTone(G4, 500);
+        playTone(F4, 500); playTone(E4, 500); playTone(D4, 500); playTone(C4, 500);
         playTone(0, 1000);
-        _delay_ms(7000);
-        playTone(C5, 1000); playTone(D5, 1000); playTone(E5, 1000); playTone(F5, 1000);
-        playTone(G5, 1000); playTone(A5, 1000); playTone(B5, 1000); playTone(C6, 1000);
-        playTone(C6, 1000); playTone(B5, 1000); playTone(A5, 1000); playTone(G5, 1000);
-        playTone(F5, 1000); playTone(E5, 1000); playTone(D5, 1000); playTone(C5, 1000);
+        _delay_ms(5000);
+        playTone(C5, 500); playTone(D5, 500); playTone(E5, 500); playTone(F5, 500);
+        playTone(G5, 500); playTone(A5, 500); playTone(B5, 500); playTone(C6, 500);
+        playTone(C6, 500); playTone(B5, 500); playTone(A5, 500); playTone(G5, 500);
+        playTone(F5, 500); playTone(E5, 500); playTone(D5, 500); playTone(C5, 500);
         playTone(0, 1000);
-        _delay_ms(7000);
+        _delay_ms(5000);
     }
 
     return 0;

@@ -12,8 +12,6 @@ ISR(TIMER0_COMPA_vect, ISR_NAKED) {
 
 ISR(TIMER2_COMPA_vect) {
     PORTB = 0xff; // carrier LOW
-    TCNT0 = 0x00; // clear count (less aliasing)
-
     if(TCCR0B) stopCarrierTimer();
     else startCarrierTimer();
 }

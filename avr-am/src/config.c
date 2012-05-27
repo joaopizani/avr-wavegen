@@ -4,9 +4,13 @@
 #include <avr-utils/timers-atmega168.h>
 
 
+static uint8_t carrier_prescale_bits = 0x0;
+
+
 void initCarrierTimer(void) {
     TCCR0A |= _BV(WGM01); // clear on compare match
     TIMSK0 |= _BV(OCIE0A); // enable compare match intr.
+    carrier_prescale_bits = getTimer0PrescaleBits_atmega168(CARRIER_PRESCALE);
 }
 
 void setCarrierFreqKHz(uint16_t f_KHz) {
@@ -16,7 +20,7 @@ void setCarrierFreqKHz(uint16_t f_KHz) {
 }
 
 inline void startCarrierTimer(void) {
-    TCCR0B |= getTimer0PrescaleBits_atmega168(CARRIER_PRESCALE);
+    TCCR0B |= carrier_prescale_bits;
 }
 
 inline void stopCarrierTimer(void) {

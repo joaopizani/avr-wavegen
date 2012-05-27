@@ -9,6 +9,9 @@
 #define CARRIER_TIMER_FREQ_KHZ (SYSTEM_FREQ_KHZ / CARRIER_PRESCALE)
 
 
+static uint8_t carrier_prescale_bits;
+
+
 void initCarrierTimer(void);
 
 void setCarrierFreqKHz(uint16_t f_KHz);
