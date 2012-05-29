@@ -3,6 +3,7 @@ AVR-Tone Sound Signal Generation Library
 This is the AVR Tone Generation Library (libavr-tone.a). It provides functions to help setup the timers
 used for wave generation, along with functions to play tones of a **defined duration and frequency**.
 
+
 What's this all about
 ---------------------
 AVR-Tone is characterized in the framework of [avr-wavegen](http://github.com/joaopizani/avr-wavegen) and a
@@ -13,10 +14,11 @@ approach: It generates tones of a defined frequency and duration.
 "Well, but ALL sounds have a defined frequency and duration!" you might argue. Well, not all, actually: we
 could have (and will probably have) generation libraries that produce:
 
-   - All sorts of noises (white noise, "brown" noise, "pink" noise, etc.).
-   - Periodic "beats" and other percussive sounds. The important thing here is the **rhythm** of the beat,
-     rather than their frequency or the duration of each beat by itself.
-   - More fancy functions of frequency vs. time such as, for example, sounds like the siren of a police car :)
+ - All sorts of noises (white noise, "brown" noise, "pink" noise, etc.).
+ - Periodic "beats" and other percussive sounds. The important thing here is the **rhythm** of the beat,
+   rather than their frequency or the duration of each beat by itself.
+ - More fancy functions of frequency vs. time such as, for example, sounds like the siren of a police car :)
+
 
 AVR-Tone as a "model" and the interface that all sound generation libs must follow
 ----------------------------------------------------------------------------------
@@ -28,6 +30,7 @@ its compare match interrupts when rising and falling edges are to happen in the 
 A clever generation lib might even use **distinct** compare match interrupts (COMPA and COMPB) to trigger
 the rise and fall of the sound wave, this way resulting in variable perceived volume by the listener
 through PWM. AVR-Tone just doesn't allow this **yet** :)
+
 
 Public API
 ----------
@@ -44,15 +47,15 @@ must first call `initCarrierTimer` and **only then** `initToneTimer`.
 
 ### void playTone(uint16\_t f\_Hz, uint16\_t dur\_ms)
 This function receives as parameters the frequency (in Hertz) of the tone to be generated, and the
-duration of this tone. IMPORTANT: This function is asynchronous, i.e, it **doesn't block while the tone is
+uration of this tone. IMPORTANT: This function is asynchronous, i.e, it **doesn't block while the tone is
 played**. The `playTone` function adds the requested tone to a *play queue* and returns immediately, leaving
 the AVR free to do other (parallel) processing. Because of some limitations of most AVR MCU's, the following
 restrictions apply when calling this function:
 
-   * *f_Hz* better be bellow some 4000Hz. Otherwise, undefined behavior (with probably lots of aliasing)
-     ensues. This is because tone generation, along with transmission and user-code timing requirements
-     might just be too much for our poor AVR's to handle (too much instruction throughput) :(
-   * *dur_ms* better be less then or equal to 6000 (6 seconds). I can't guarantee anything higher than that.
+ * *f_Hz* better be bellow some 4000Hz. Otherwise, undefined behavior (with probably lots of aliasing)
+   ensues. This is because tone generation, along with transmission and user-code timing requirements
+   might just be too much for our poor AVR's to handle (too much instruction throughput) :(
+ * *dur_ms* better be less then or equal to 6000 (6 seconds). I can't guarantee anything higher than that.
 
 
 Important remark

@@ -1,6 +1,5 @@
 AVR-AM: Transmit signals over Amplitude-Modulated radio waves
 =============================================================
-
 This library takes as input a square-wave signal and performs amplitude modulation on it, outputting the
 already-modulated carrier wave on pin 0 of PORTB. It is of great importance to have in mind that the generated
 carrier is **also square** and relatively low-power.
@@ -12,6 +11,7 @@ These two characteristics combined mean that you have to hold the antenna of you
 AVR to be able to hear anything. Of course, if you're not so purist, you can always add a transistor to the
 output to amplify it. Just please don't amplify it too much or else you might go to jail :P
 
+
 What's this lib made of?
 ------------------------
 Well, our whole approach to wave generation in avr-wavegen is based on timers and interrupt-driven
@@ -20,25 +20,26 @@ to *turn the carrier on* when a *rising edge* happens in the signal, and *turn t
 *falling edge* happens in the signal. To take care of generating the carrier and modulating it, avr-am has
 **two interrupt handlers** in src/toggle.c:
 
-1. **TIMER0\_COMPA\_vect:** is activated with twice the desired frequency of the carrier. That because we
-   assume that the duty-cycle is 50% (such flexibility is too expensive as the handler must have ideally a
-   couple of instructions). Each time this ISR is called, we toggle pin 0 of PORTB (one instruction).
+ 1. **TIMER0\_COMPA\_vect:** is activated with twice the desired frequency of the carrier. That because we
+    assume that the duty-cycle is 50% (such flexibility is too expensive as the handler must have ideally a
+    couple of instructions). Each time this ISR is called, we toggle pin 0 of PORTB (one instruction).
 
-2. **TIMER2\_COMPA\_vect:** is called with twice the frequency of the sound signal requested by the client
-   generation library. This function just enables and disables TIMER0 counting, effectively "toggling" the
-   carrier. We could easily implement variable duty-cycle in the sound signal - resulting in variable sound
-   volume (through PWM). I just didn't do it yet 'cause I'm lazy :)
+ 2. **TIMER2\_COMPA\_vect:** is called with twice the frequency of the sound signal requested by the client
+    generation library. This function just enables and disables TIMER0 counting, effectively "toggling" the
+    carrier. We could easily implement variable duty-cycle in the sound signal - resulting in variable sound
+    volume (through PWM). I just didn't do it yet 'cause I'm lazy :)
+
 
 Initializing and configuring AM playback
 ----------------------------------------
 AVR-AM gives you the possibility to choose which carrier frequency you want to use for your humble radio
 transmitter, by using the functions declared in avr-am/config.h. The code snippet below shall give you a
 really good idea of how to use avr-am:
-
+``` c
     #include <avr/interrupt.h>
     #include <avr-am/config.h>
     #include <avr-tone/avr-tone.h> // or any other sound signal generation lib
-    
+
     initOutput(); // this is from avr-tone
     initCarrierTimer(); // this is from avr-am
     initToneTimer(); // this is from avr-tone
@@ -47,6 +48,7 @@ really good idea of how to use avr-am:
     sei(); // enable global interrupts, we need it for all timers to work
 
     playTone(...); // play you favorite sounds :)
+```
 
 
 Installing and using in applications
@@ -60,18 +62,20 @@ To use avr-am in an application, you must link your application with the static 
 found under $PREFIX/lib. In the case that you are using a Makefile from avr-wavegen as a template for the
 Makefile in your application - or using the Makefile template from
 [avr-utils](https://github.com/joaopizani/avr-utils) - then you can just add the following to your paths.def:
-
+``` bash
     AVRAM_ROOT=[path to PREFIX where you installed avr-am]
     AVRAM_INCLUDE=${AVRAM_ROOT}/include
     AVRAM_LIBS=${AVRAM_ROOT}/lib/avr-am
     AVRAM_INCFLAGS=-I${AVRAM_INCLUDE}
-    AVRAM_LIBFLAGS=-Wl,--whole-archive -L${AVRAM_LIBS} -lavr-buzzer -Wl,--no-whole-archive
+    AVRAM_LIBFLAGS=-Wl,--whole-archive -L${AVRAM_LIBS} -lavr-am -Wl,--no-whole-archive
+```
 
 Observation: the *-Wl,--whole-archive* and *-Wl,--no-whole-archive* options are needed because the library
 mainly consists of interruption handlers, which wouldn't otherwise be linked in. Finally, you should
 append AVRAM\_INCFLAGS and AVRAM\_LIBFLAGS, respectively, to the variables EXT\_INCFLAGS and EXT\_LIBFLAGS,
 which should be present at the end of your paths.def. Like this:
-
+``` bash
     EXT_INCFLAGS=${LIB1_INCFLAGS} ${LIB2_INCFLAGS} ${AVRAM_INCFLAGS} ...
     EXT_LIBFLAGS=${LIB1_LIBFLAGS} ${LIB2_LIBFLAGS} ${AVRAM_LIBFLAGS} ...
+```
 
