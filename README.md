@@ -1,6 +1,5 @@
-AVR-Wavegen: The Humble AVR Sound Generation Library
-====================================================
-
+AVR-Wavegen: The Humble AVR Sound Library Suite
+===============================================
 
 Introduction
 ------------
@@ -48,7 +47,7 @@ fact they are all based on the same Makefile template, which can be found in the
 compilation steps remain the same:
 
 1. Enter the library directory and edit the `paths.def` with paths to the dependencies of that lib (if any).
-   Obs: detailed information about the dependecies of a lib are in the README file in that lib's subdirectory.
+   Obs: it should not be necessary to edit the paths.def for libs that come pre-bundled with the avr-wavegen 
 2. Type `make` to compile the sources and create the .a file.
 3. Then type `make install PREFIX=\<favorite-dir\>` to install the lib to your favorite directory. You can
    also directly type `make install PREFIX=\<favorite-dir\>` if you are feeling lucky...
