@@ -17,7 +17,8 @@ compile and install avr-buzzer at a certain PREFIX in your filesystem by just ty
 
     make install PREFIX=[prefix]
 
-To use avr-buzzer in an application, you must link your application with the static lib file (libavr-buzzer.a)
+To use avr-buzzer in an application (or other library), you must add the path of avr-buzzer's headers to the
+compiler's include path, and link your application with the static lib file (libavr-buzzer.a)
 found under $PREFIX/lib. In the case that you are using a Makefile from avr-wavegen as a template for the
 Makefile in your application - or using the Makefile template from
 [avr-utils](https://github.com/joaopizani/avr-utils) - then you can just add the following to your paths.def:

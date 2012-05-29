@@ -58,7 +58,8 @@ compile and install avr-am at a certain PREFIX in your filesystem by just typing
 
     make install PREFIX=[prefix]
 
-To use avr-am in an application, you must link your application with the static lib file (libavr-am.a)
+To use avr-am in an application (or other library), you must add the path of avr-am's headers to the compiler's
+include path, and link your application with the static lib file (libavr-am.a)
 found under $PREFIX/lib. In the case that you are using a Makefile from avr-wavegen as a template for the
 Makefile in your application - or using the Makefile template from
 [avr-utils](https://github.com/joaopizani/avr-utils) - then you can just add the following to your paths.def:

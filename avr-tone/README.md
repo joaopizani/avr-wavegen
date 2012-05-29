@@ -63,3 +63,32 @@ Important remark
 The avr-tone library is heavily interrupt-driven. So you **must** have global interrupts enabled when using
 avr-tone. The recommended procedure is to call `sei()` (from `avr/interrupt.h`) just before starting the
 calls to `playTone`.
+
+
+Installing and using in applications
+------------------------------------
+As with all other component libraries of [avr-wavegen](https://github.com/joaopizani/avr-wavegen), you can
+compile and install avr-tone at a certain PREFIX in your filesystem by just typing
+
+    make install PREFIX=[prefix]
+
+To use avr-tone in an application (or other library), you must add the path of avr-tone's headers to the
+compiler's include path, and link your application with the static lib file (libavt-tone.a)
+found under $PREFIX/lib. In the case that you are using a Makefile from avr-wavegen as a template for the
+Makefile in your application - or using the Makefile template from
+[avr-utils](https://github.com/joaopizani/avr-utils) - then you can just add the following to your paths.def:
+``` bash
+    AVRTONE_ROOT=[path to PREFIX where you installed avr-tone]
+    AVRTONE_INCLUDE=${AVRAM_ROOT}/include
+    AVRTONE_LIBS=${AVRAM_ROOT}/lib/avr-tone
+    AVRTONE_INCFLAGS=-I${AVRTONE_INCLUDE}
+    AVRTONE_LIBFLAGS=-L${AVRTONE_LIBS} -lavr-tone
+```
+
+Finally, you should append AVRTONE\_INCFLAGS and AVRTONE\_LIBFLAGS, respectively, to the variables
+EXT\_INCFLAGS and EXT\_LIBFLAGS, which should be present at the end of your paths.def. Like this:
+``` bash
+    EXT_INCFLAGS=${LIB1_INCFLAGS} ${LIB2_INCFLAGS} ${AVRAM_INCFLAGS} ...
+    EXT_LIBFLAGS=${LIB1_LIBFLAGS} ${LIB2_LIBFLAGS} ${AVRAM_LIBFLAGS} ...
+```
+
