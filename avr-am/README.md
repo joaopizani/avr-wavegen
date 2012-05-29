@@ -12,11 +12,6 @@ These two characteristics combined mean that you have to hold the antenna of you
 AVR to be able to hear anything. Of course, if you're not so purist, you can always add a transistor to the
 output to amplify it. Just please don't amplify it too much or else you might go to jail :P
 
-This module contains two source files (src/avr-am/config.c and src/avr-am/toggle.c), and is responsible for
-providing an Amplitude Modulation (AM) "backend" for the tone generation library. The "config.c" file has
-functions to help setup a carrier wave with desired frequency, by working with timer 0. Then the file toggle.c
-has two interrupt service routines (ISRs):
-
 What's this lib made of?
 ------------------------
 Well, our whole approach to wave generation in avr-wavegen is based on timers and interrupt-driven

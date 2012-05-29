@@ -1,7 +1,33 @@
-AVR Tone Generation Library
-===========================
+AVR-Tone Sound Signal Generation Library
+========================================
 This is the AVR Tone Generation Library (libavr-tone.a). It provides functions to help setup the timers
-used for wave generation, along with functions to play sounds of a defined duration and frequency.
+used for wave generation, along with functions to play tones of a **defined duration and frequency**.
+
+What's this all about
+---------------------
+AVR-Tone is characterized in the framework of [avr-wavegen](http://github.com/joaopizani/avr-wavegen) and a
+**signal generation** library, that is, a library which main responsibility is to generate a (square) sound
+signal. But there are A LOT of ways to make square-wave sounds, and avr-tone certainly takes a very specific
+approach: It generates tones of a defined frequency and duration.
+
+"Well, but ALL sounds have a defined frequency and duration!" you might argue. Well, not all, actually: we
+could have (and will probably have) generation libraries that produce:
+
+   - All sorts of noises (white noise, "brown" noise, "pink" noise, etc.).
+   - Periodic "beats" and other percussive sounds. The important thing here is the **rhythm** of the beat,
+     rather than their frequency or the duration of each beat by itself.
+   - More fancy functions of frequency vs. time such as, for example, sounds like the siren of a police car :)
+
+AVR-Tone as a "model" and the interface that all sound generation libs must follow
+----------------------------------------------------------------------------------
+AVR-Tone is just, therefore, a first and small step in the direction of a whole array of sound generation libs
+that might come. The **interface that all sound generation libs must follow**, however, is simple: they must
+generate the sound signal **by using TIMER2 compare match interrupts**, that is, by making *TIMER2 trigger
+its compare match interrupts when rising and falling edges are to happen in the sound signal*.
+
+A clever generation lib might even use **distinct** compare match interrupts (COMPA and COMPB) to trigger
+the rise and fall of the sound wave, this way resulting in variable perceived volume by the listener
+through PWM. AVR-Tone just doesn't allow this **yet** :)
 
 Public API
 ----------
@@ -16,17 +42,21 @@ Initializes the timer used for sound signal generation. This is **different** fr
 transmission backend, and must be done only **after** it. For example, when using `avr-am` as a backend, you
 must first call `initCarrierTimer` and **only then** `initToneTimer`.
 
-### void playTone(uint16_t f_Hz, uint16_t dur_ms)
-This function receives as parameters the frequency (in Hertz) of the sound wave to be generated, and the
-duration of this sound. IMPORTANT: This function is asynchronous, i.e, it **doesn't block while the tone is
-played**. The `playTone` function adds the requested tone to the play queue and returns immediately, leaving
+### void playTone(uint16\_t f\_Hz, uint16\_t dur\_ms)
+This function receives as parameters the frequency (in Hertz) of the tone to be generated, and the
+duration of this tone. IMPORTANT: This function is asynchronous, i.e, it **doesn't block while the tone is
+played**. The `playTone` function adds the requested tone to a *play queue* and returns immediately, leaving
 the AVR free to do other (parallel) processing. Because of some limitations of most AVR MCU's, the following
 restrictions apply when calling this function:
 
-* *f_Hz* better be bellow some 5000Hz. Otherwise, undefined behavior (with probably lots of aliasing) ensues.
-* *dur_ms* better be less then or equal to 6000 (6 seconds). I cannot guarantee anything higher than that...
+   * *f_Hz* better be bellow some 4000Hz. Otherwise, undefined behavior (with probably lots of aliasing)
+     ensues. This is because tone generation, along with transmission and user-code timing requirements
+     might just be too much for our poor AVR's to handle (too much instruction throughput) :(
+   * *dur_ms* better be less then or equal to 6000 (6 seconds). I can't guarantee anything higher than that.
+
 
 Important remark
 ----------------
 The avr-tone library is heavily interrupt-driven. So you **must** have global interrupts enabled when using
-avr-tone. The recommended procedure is to call `sei` just before starting the calls to `playTone`.
+avr-tone. The recommended procedure is to call `sei()` (from `avr/interrupt.h`) just before starting the
+calls to `playTone`.
