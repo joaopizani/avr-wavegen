@@ -1,0 +1,6 @@
+[submodule "avr-utils"]
+	path = avr-utils
+	url = https://github.com/joaopizani/avr-utils.git
+[submodule "avr-alarm"]
+	path = avr-alarm
+	url = https://github.com/joaopizani/avr-alarm.git
