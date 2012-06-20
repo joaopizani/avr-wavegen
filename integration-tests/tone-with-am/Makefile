@@ -69,7 +69,7 @@ LIBS=${EXT_LIBFLAGS}
 
 
 # additional macro definition flags
-EXT_DEFS=
+EXT_DEFS=-DSHORT_BEEPS
 
 # Optimization level - use s (size opt), 1, 2, 3 or 0 (off)
 OPTLEVEL=1
@@ -111,7 +111,8 @@ SIM_TRACES=
 DEFS=-DF_CPU=$(MCU_FREQ) \
 	 -DSIM_WRITE="(*((volatile char *) $(SIM_WRITE_ADDR)))" \
 	 -DSIM_READ="(*((volatile char *) $(SIM_READ_ADDR)))" \
-	 -DSIM_EXIT="(*((volatile char *) $(SIM_EXIT_ADDR)))"
+	 -DSIM_EXIT="(*((volatile char *) $(SIM_EXIT_ADDR)))" \
+	 $(EXT_DEFS)
 
 #### Simulation
 ifndef SIM_DIR
