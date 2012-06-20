@@ -8,8 +8,14 @@
  * resolution of 1Hz and range C4 to C6.
  */
 #define TONE_PRESCALE 128
-
 #define TONE_TIMER_FREQ_HZ (F_CPU / TONE_PRESCALE)
+
+/** time resolution of tone generation, in miliseconds. The library cannot distinguish
+ * between two duration with a difference less than TONE_TIME_RESOLUTION. For example, if
+ * TONE_TIME_RESOLUTION = 10, then playTone(440, 500) and playTone(440, 502) will have
+ * the same duration.
+ */
+#define TONE_TIME_RESOLUTION 10
 
 
 void initOutput(void);
