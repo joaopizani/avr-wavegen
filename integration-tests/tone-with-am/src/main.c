@@ -30,6 +30,11 @@
  * for the _delay_ms(t) you see in the code...
  */
 
+// By using the SHORT_BEEPS define, we can have shorter tones for easier simulation
+#define BEEP_T 500
+#ifdef SHORT_BEEPS
+#define BEEP_T 20
+#endif
 
 int main(void) {
     initOutput();
@@ -37,33 +42,24 @@ int main(void) {
     initCarrierTimer();
     setCarrierFreqKHz(560);
 
-    // init "beeps" so that we can notice the scale coming :)
-    int i;
-    for(i = 0; i < 4; i++) {
-        playTone(1000, 100);
-        playTone(0, 900);
-    }
-    playTone(1000, 1000);
-    playTone(0, 1000);
-
+    // long "beep" so that we can notice the scale coming :)
+    playTone(1000, (BEEP_T * 2));
+    playTone(0, (BEEP_T * 2));
 
     sei();
-    _delay_ms(2000);
 
     // C major scale, to test that the tones are played in tune :)
     while(1) {
-        playTone(C4, 500); playTone(D4, 500); playTone(E4, 500); playTone(F4, 500);
-        playTone(G4, 500); playTone(A4, 500); playTone(B4, 500); playTone(C5, 500);
-        playTone(C5, 500); playTone(B4, 500); playTone(A4, 500); playTone(G4, 500);
-        playTone(F4, 500); playTone(E4, 500); playTone(D4, 500); playTone(C4, 500);
-        playTone(0, 1000);
-        _delay_ms(5000);
-        playTone(C5, 500); playTone(D5, 500); playTone(E5, 500); playTone(F5, 500);
-        playTone(G5, 500); playTone(A5, 500); playTone(B5, 500); playTone(C6, 500);
-        playTone(C6, 500); playTone(B5, 500); playTone(A5, 500); playTone(G5, 500);
-        playTone(F5, 500); playTone(E5, 500); playTone(D5, 500); playTone(C5, 500);
-        playTone(0, 1000);
-        _delay_ms(5000);
+        playTone(C4, BEEP_T); playTone(D4, BEEP_T); playTone(E4, BEEP_T); playTone(F4, BEEP_T);
+        playTone(G4, BEEP_T); playTone(A4, BEEP_T); playTone(B4, BEEP_T); playTone(C5, BEEP_T);
+        playTone(C5, BEEP_T); playTone(B4, BEEP_T); playTone(A4, BEEP_T); playTone(G4, BEEP_T);
+        playTone(F4, BEEP_T); playTone(E4, BEEP_T); playTone(D4, BEEP_T); playTone(C4, BEEP_T);
+        playTone(0, (BEEP_T * 2));
+        playTone(C5, BEEP_T); playTone(D5, BEEP_T); playTone(E5, BEEP_T); playTone(F5, BEEP_T);
+        playTone(G5, BEEP_T); playTone(A5, BEEP_T); playTone(B5, BEEP_T); playTone(C6, BEEP_T);
+        playTone(C6, BEEP_T); playTone(B5, BEEP_T); playTone(A5, BEEP_T); playTone(G5, BEEP_T);
+        playTone(F5, BEEP_T); playTone(E5, BEEP_T); playTone(D5, BEEP_T); playTone(C5, BEEP_T);
+        playTone(0, (BEEP_T * 2));
     }
 
     return 0;
