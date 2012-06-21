@@ -69,7 +69,7 @@ LIBS=${EXT_LIBFLAGS}
 
 
 # additional macro definition flags
-EXT_DEFS=-DSHORT_BEEPS
+EXT_DEFS=
 
 # Optimization level - use s (size opt), 1, 2, 3 or 0 (off)
 OPTLEVEL=1

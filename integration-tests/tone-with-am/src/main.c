@@ -31,7 +31,7 @@
  */
 
 // By using the SHORT_BEEPS define, we can have shorter tones for easier simulation
-#define BEEP_T 500
+#define BEEP_T 200
 #ifdef SHORT_BEEPS
 #undef BEEP_T
 #define BEEP_T 50
