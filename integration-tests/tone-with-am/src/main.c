@@ -34,7 +34,7 @@
 #define BEEP_T 500
 #ifdef SHORT_BEEPS
 #undef BEEP_T
-#define BEEP_T 20
+#define BEEP_T 50
 #endif
 
 int main(void) {
