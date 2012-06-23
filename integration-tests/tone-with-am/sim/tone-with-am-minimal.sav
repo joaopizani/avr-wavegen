@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.34 (w)1999-2012 BSI
+[*] Thu Jun 21 17:06:38 2012
+[*]
+[dumpfile] "/home/joaopizani/avr/avr-wavegen/integration-tests/tone-with-am/sim/waves.vcd"
+[dumpfile_mtime] "Thu Jun 21 17:01:14 2012"
+[dumpfile_size] 8526
+[savefile] "/home/joaopizani/avr/avr-wavegen/integration-tests/tone-with-am/sim/tone-with-am-minimal.sav"
+[timestart] 0
+[size] 1148 474
+[pos] -1 125
+*-30.000000 1347000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 223
+[signals_width] 110
+[sst_expanded] 1
+[sst_vpaned_height] 116
+@200
+-Timer0
+@24
+TIMER0.OCRA[7:0]
+@200
+-
+-Timer1
+@24
+TIMER1.OCRAH[7:0]
+TIMER1.OCRAL[7:0]
+@201
+-
+@200
+-Timer2
+@24
+TIMER2.OCRA[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
