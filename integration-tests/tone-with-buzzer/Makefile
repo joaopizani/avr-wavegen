@@ -73,7 +73,7 @@ EXT_DEFS=
 
 # Optimization level, 
 # use s (size opt), 1, 2, 3 or 0 (off)
-OPTLEVEL=1
+OPTLEVEL=2
 
 
 #####      AVR Dude 'writeflash' options       #####
